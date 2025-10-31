@@ -1,0 +1,248 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 220 40% 98%; /* #F9FAFB */
+    --foreground: 224 71% 4%; /* #111827 */
+    --card: 220 40% 100%; /* #FFFFFF */
+    --card-foreground: 224 71% 4%; /* #111827 */
+    --popover: 0 0% 100%;
+    --popover-foreground: 224 71% 4%;
+    --primary: 221 83% 53%; /* #2563EB */
+    --primary-foreground: 210 40% 98%;
+    --secondary: 145 63% 49%; /* #22C55E */
+    --secondary-foreground: 210 40% 98%;
+    --accent: 44 96% 52%; /* #FACC15 */
+    --accent-foreground: 224 71% 4%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 220 13% 86%;
+    --input: 220 13% 86%;
+    --ring: 222 83% 53%;
+    --chart-1: 222 83% 53%;
+    --chart-2: 145 63% 46%;
+    --chart-3: 45 93% 53%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+
+    --toggle-border-color: #8c8c8c;
+    --toggle-shadow-color: #999;
+    --toggle-bg-shadow1: #ccc;
+    --toggle-bg-shadow2: #ddd;
+    --toggle-bg-shadow3: #fff;
+    --toggle-active-text: hsl(var(--primary));
+    --toggle-inactive-text: hsl(var(--muted-foreground));
+  }
+
+  .dark {
+    --background: 222 47% 11%; /* #0F172A */
+    --foreground: 210 40% 98%;
+    --card: 222 47% 15%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222 47% 11%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 221 83% 53%;
+    --primary-foreground: 222 47% 11%;
+    --secondary: 145 63% 49%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217 32% 17%;
+    --muted-foreground: 215 20% 65%;
+    --accent: 44 96% 52%;
+    --accent-foreground: 210 40% 9.8%;
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 217 32% 27%;
+    --input: 217 32% 27%;
+    --ring: 212 72% 51%;
+
+    --toggle-border-color: hsl(var(--border));
+    --toggle-shadow-color: hsl(var(--border));
+    --toggle-bg-shadow1: #000;
+    --toggle-bg-shadow2: #0F172A;
+    --toggle-bg-shadow3: #222;
+    --toggle-active-text: hsl(var(--primary));
+    --toggle-inactive-text: hsl(var(--muted-foreground));
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  .dark body {
+    background:
+      /* base */
+      radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
+  }
+
+  .light body {
+    background-image: linear-gradient(135deg, hsl(var(--primary) / 0.1) 0%, hsl(var(--secondary) / 0.1) 100%);
+  }
+
+  main {
+    z-index: 10;
+  }
+
+  header {
+    z-index: 50;
+  }
+
+  /* Starry background for dark mode */
+  .dark #stars, .dark #stars2, .dark #stars3 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+  }
+
+  .dark #stars {
+    background-image:
+      radial-gradient(1px 1px at 20px 30px, #eee, rgba(0,0,0,0)),
+      radial-gradient(1px 1px at 40px 70px, #fff, rgba(0,0,0,0)),
+      radial-gradient(1px 1px at 50px 160px, #ddd, rgba(0,0,0,0)),
+      radial-gradient(1px 1px at 90px 40px, #fff, rgba(0,0,0,0)),
+      radial-gradient(1px 1px at 130px 80px, #fff, rgba(0,0,0,0)),
+      radial-gradient(1px 1px at 160px 120px, #ddd, rgba(0,0,0,0));
+    background-size: 200px 200px;
+    animation: zoom 15s infinite;
+    opacity: 0;
+    animation-delay: 0s;
+  }
+
+  .dark #stars2 {
+    background-image:
+      radial-gradient(1px 1px at 50px 50px, #fff, rgba(0,0,0,0)),
+      radial-gradient(1px 1px at 100px 150px, #ddd, rgba(0,0,0,0)),
+      radial-gradient(1px 1px at 150px 50px, #fff, rgba(0,0,0,0)),
+      radial-gradient(1px 1px at 200px 150px, #ddd, rgba(0,0,0,0)),
+      radial-gradient(1px 1px at 250px 50px, #fff, rgba(0,0,0,0));
+    background-size: 300px 300px;
+    animation: zoom 20s infinite;
+    opacity: 0;
+    animation-delay: 2s;
+  }
+
+  .dark #stars3 {
+    background-image:
+      radial-gradient(2px 2px at 100px 100px, #fff, rgba(0,0,0,0)),
+      radial-gradient(2px 2px at 200px 200px, #eee, rgba(0,0,0,0)),
+      radial-gradient(2px 2px at 300px 100px, #fff, rgba(0,0,0,0));
+    background-size: 400px 400px;
+    animation: zoom 25s infinite;
+    opacity: 0;
+    animation-delay: 4s;
+  }
+
+  @keyframes zoom {
+    0% {
+      opacity: 0;
+      transform: scale(0.5);
+      animation-timing-function: ease-in;
+    }
+    10% {
+      opacity: 1;
+      transform: scale(0.7);
+      animation-timing-function: linear;
+    }
+    85% {
+      opacity: 1;
+      transform: scale(1);
+    }
+    100% {
+      opacity: 0;
+      transform: scale(1.2);
+    }
+  }
+}
+
+@layer components {
+  /* =====================================================
+    Text Toggle Styles
+   ===================================================== */
+  .toggle {
+    display: block;
+    text-align: center;
+    user-select: none;
+  }
+  .toggle--checkbox {
+    display: none;
+  }
+  .toggle--btn {
+    display: block;
+    margin: 0 auto;
+    font-size: 0.8rem;
+    transition: all 350ms ease-in;
+  }
+  .toggle--btn:hover {
+    cursor: pointer;
+  }
+  .toggle--btn,
+  .toggle--checkbox {
+    transition: all 250ms ease-in;
+  }
+  .toggle--btn:before,
+  .toggle--btn:after {
+    transition: all 250ms ease-in;
+    content: '';
+    display: block;
+  }
+
+  .toggle--text .toggle--btn {
+    position: relative;
+    width: 100px;
+    height: 40px;
+    font-family: 'Source Sans Pro', Sans Serif;
+    text-transform: uppercase;
+    font-weight: bold;
+    border-radius: 40px;
+    border: 1px solid var(--toggle-border-color);
+    box-shadow:
+      -6px 6px 12px var(--toggle-bg-shadow1),
+       6px -6px 12px var(--toggle-bg-shadow2),
+       inset -2px 2px 4px rgba(0,0,0,0.2),
+       inset 2px -2px 4px rgba(255,255,255,0.8);
+  }
+  .toggle--text .toggle--btn:before,
+  .toggle--text .toggle--btn:after {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50%;
+    text-align: center;
+  }
+  .toggle--text .toggle--btn:before {
+    content: attr(data-label-off);
+    left: 0;
+    color: var(--toggle-active-text);
+  }
+  .toggle--text .toggle--btn:after {
+    content: attr(data-label-on);
+    right: 0;
+    color: var(--toggle-inactive-text);
+  }
+  
+  .toggle--checkbox:checked + .toggle--btn:before {
+    color: var(--toggle-inactive-text);
+  }
+  .toggle--checkbox:checked + .toggle--btn:after {
+    color: var(--toggle-active-text);
+  }
+
+  .toggle--checkbox:checked + .toggle--btn {
+    box-shadow:
+      -6px 6px 12px var(--toggle-bg-shadow2),
+       6px -6px 12px var(--toggle-bg-shadow1),
+       inset -2px 2px 4px rgba(255,255,255,0.8),
+       inset 2px -2px 4px rgba(0,0,0,0.2);
+  }
+}
