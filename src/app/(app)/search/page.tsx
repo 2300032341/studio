@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useSearchParams } from "next/navigation";
@@ -42,8 +43,8 @@ function SearchResults() {
   }, [query]);
 
   return (
-    <div className="container mx-auto p-4">
-      <div className="mb-8">
+    <div className="flex flex-col gap-4">
+      <div className="mb-4">
         <h1 className="text-3xl font-bold font-headline tracking-tight">
           Search Results
         </h1>

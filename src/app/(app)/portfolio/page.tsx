@@ -129,14 +129,14 @@ export default function PortfolioPage() {
 
 
   return (
-    <div className="container mx-auto p-4 space-y-8">
+    <div className="flex flex-col gap-8">
       {/* Header and Edit Toggle */}
-      <div className="flex justify-between items-center">
+      <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
         <h1 className="text-3xl font-bold font-headline tracking-tight">My Portfolio</h1>
-        <div className="flex items-center space-x-4">
+        <div className="flex items-center space-x-2 md:space-x-4">
           {isEditMode && (
-             <Button onClick={handleSaveChanges}>
-                <Save className="mr-2"/> Save Changes
+             <Button onClick={handleSaveChanges} size="sm">
+                <Save className="mr-2 h-4 w-4"/> Save Changes
              </Button>
           )}
           <div className="flex items-center space-x-2">
@@ -147,7 +147,7 @@ export default function PortfolioPage() {
                 onCheckedChange={setIsEditMode}
             />
           </div>
-           <Button variant="outline"><ExternalLink className="mr-2" /> Share</Button>
+           <Button variant="outline" size="sm"><ExternalLink className="mr-2 h-4 w-4" /> Share</Button>
         </div>
       </div>
       
@@ -375,7 +375,7 @@ export default function PortfolioPage() {
                 <CardContent className="space-y-6">
                     {portfolioData.projects.map(project => (
                         <div key={project.title} className="flex flex-col md:flex-row gap-6">
-                            {projectThumbnail && <Image src={projectThumbnail.imageUrl} alt={project.title} width={200} height={120} className="rounded-lg object-cover w-full md:w-1/3"/>}
+                            {projectThumbnail && <Image src={projectThumbnail.imageUrl} alt={project.title} width={200} height={120} className="rounded-lg object-cover w-full md:w-[200px]"/>}
                             <div className="flex-1">
                                 <h4 className="font-semibold">{project.title}</h4>
                                 <p className="text-sm text-muted-foreground mt-1">{project.description}</p>

@@ -1,3 +1,4 @@
+
 "use client";
 
 import { Button } from "@/components/ui/button";
@@ -51,8 +52,8 @@ export default function VmPage() {
   ];
 
   return (
-    <div className="container mx-auto p-4">
-      <div className="mb-8">
+    <div className="flex flex-col gap-4">
+      <div className="mb-4">
         <h1 className="text-3xl font-bold font-headline tracking-tight">Virtual Machine</h1>
         <p className="text-muted-foreground">Your personal development environment.</p>
       </div>

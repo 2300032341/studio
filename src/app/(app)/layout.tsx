@@ -10,11 +10,12 @@ import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { PanelLeft } from 'lucide-react';
 import { useRouter } from 'next/navigation';
-import { type FormEvent } from 'react';
+import { type FormEvent, useState } from 'react';
 import { ThemeToggle } from '@/components/app/theme-toggle';
 
 export default function AppLayout({ children }: { children: React.ReactNode }) {
   const router = useRouter();
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const handleSearch = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -46,7 +47,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
       <div id="stars3"></div>
       
       {/* Sidebar for Desktop */}
-      <aside className="hidden md:flex flex-col w-72 border-r bg-card/50 p-6 gap-8">
+      <aside className="hidden md:flex flex-col w-20 hover:w-72 transition-all duration-300 ease-in-out group border-r bg-card/50 backdrop-blur-sm p-6 gap-8">
         <Logo />
         <MainNav />
         <div className="mt-auto">
@@ -56,10 +57,10 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
 
       <div className="flex flex-1 flex-col">
         {/* Main Header */}
-        <header className="sticky top-0 z-40 flex h-16 items-center justify-between gap-4 border-b bg-background/80 px-4 backdrop-blur-sm md:px-6">
+        <header className="sticky top-0 z-40 flex h-16 items-center justify-between gap-4 border-b bg-card/50 px-4 backdrop-blur-sm md:px-6">
           <div className="flex items-center gap-4">
              {/* Mobile Nav Trigger */}
-            <Sheet>
+            <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
               <SheetTrigger asChild>
                 <Button
                   variant="outline"
@@ -70,13 +71,13 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
                   <span className="sr-only">Toggle navigation menu</span>
                 </Button>
               </SheetTrigger>
-              <SheetContent side="left" className="p-0">
+              <SheetContent side="left" className="p-0 bg-card">
                 <div className="flex flex-col h-full">
                   <div className="p-6 border-b">
-                    <Logo />
+                    <Logo isMobile={true}/>
                   </div>
                   <div className="flex-1 overflow-y-auto">
-                    <MainNav isMobile={true} />
+                    <MainNav isMobile={true} onLinkClick={() => setIsMobileMenuOpen(false)} />
                   </div>
                 </div>
               </SheetContent>

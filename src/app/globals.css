@@ -34,12 +34,13 @@
     --toggle-bg-shadow3: #fff;
     --toggle-active-text: hsl(var(--primary));
     --toggle-inactive-text: hsl(var(--muted-foreground));
+    --radius: 1rem;
   }
 
   .dark {
     --background: 222 47% 11%; /* #0F172A */
     --foreground: 210 40% 98%;
-    --card: 222 47% 15%;
+    --card: 210 40% 98% / 0.05;
     --card-foreground: 210 40% 98%;
     --popover: 222 47% 11%;
     --popover-foreground: 210 40% 98%;
@@ -64,6 +65,7 @@
     --toggle-bg-shadow3: #222;
     --toggle-active-text: hsl(var(--primary));
     --toggle-inactive-text: hsl(var(--muted-foreground));
+    --radius: 1rem;
   }
 }
 

@@ -1,3 +1,4 @@
+
 "use client"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -50,17 +51,17 @@ const ProjectCard = ({ project, vmRunning, onToggleVm, progress }: { project: ty
   }
 
   return (
-    <Card className="flex-1">
+    <Card className="flex-1 min-w-[300px]">
       <CardHeader>
         <div className="flex justify-between items-start">
             <CardTitle className="font-headline text-xl">{project.title}</CardTitle>
             <Badge variant={vmRunning ? "default" : "secondary"}>{vmRunning ? "VM Running" : "VM Stopped"}</Badge>
         </div>
         <CardDescription>{project.description}</CardDescription>
-        <div className="flex items-center gap-4 text-sm text-muted-foreground pt-2">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-4 text-sm text-muted-foreground pt-2">
             <Badge variant="outline">Development Phase</Badge>
             <span>{progress}% Complete</span>
-            <span>Due: Sept 16, 2024</span>
+            <span className="hidden sm:inline">Due: Sept 16, 2024</span>
         </div>
       </CardHeader>
       <CardContent className="grid gap-3">
@@ -83,7 +84,7 @@ const ProjectCard = ({ project, vmRunning, onToggleVm, progress }: { project: ty
             <Progress value={vmRunning ? 35 : 0} className="h-2" />
         </div>
 
-        <div className="flex gap-4 pt-2">
+        <div className="flex flex-col sm:flex-row gap-2 pt-2">
             <Button variant="outline" className="w-full" asChild>
                 <Link href={`/projects/${project.id}`}>View Details</Link>
             </Button>
@@ -127,8 +128,8 @@ export default function ProjectsPage() {
 
 
   return (
-    <div className="container mx-auto p-4">
-      <div className="flex justify-between items-center mb-8">
+    <div className="flex flex-col gap-4">
+      <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-4">
         <h1 className="text-3xl font-bold font-headline tracking-tight">Project Management</h1>
         <div className="flex gap-2">
             <Dialog>
@@ -186,12 +187,12 @@ export default function ProjectsPage() {
         </div>
       </div>
 
-      <div className="flex gap-6 mb-8">
+      <div className="flex flex-col md:flex-row gap-6 mb-4">
         <ProjectCard project={mockProjects[0]} vmRunning={vmStates.p1} onToggleVm={() => handleToggleVm('p1')} progress={68} />
         <ProjectCard project={mockProjects[1]} vmRunning={vmStates.p2} onToggleVm={() => handleToggleVm('p2')} progress={84} />
       </div>
 
-      <div className="grid grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         <div>
             <div className="flex items-center gap-2 mb-4">
                 <h2 className="font-semibold text-lg">To Do</h2>

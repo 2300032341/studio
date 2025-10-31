@@ -91,8 +91,8 @@ export default function ChatsPage() {
 
 
   return (
-    <div className="flex h-[calc(100vh-theme(spacing.20))]">
-      <div className="w-80 flex-shrink-0 border-r bg-card text-card-foreground">
+    <div className="flex h-full md:h-[calc(100vh-theme(spacing.24))]">
+      <div className="w-full md:w-80 flex-shrink-0 border-r bg-card text-card-foreground">
         <div className="flex h-full flex-col">
           <div className="p-4 border-b">
             <h2 className="text-xl font-bold font-headline">#CorporateIntern</h2>
@@ -151,7 +151,7 @@ export default function ChatsPage() {
           </div>
         </div>
       </div>
-      <div className="flex flex-1 flex-col">
+      <div className="hidden md:flex flex-1 flex-col">
         <div className="border-b p-4">
             <h2 className="text-lg font-semibold flex items-center gap-2">
                 {activeChat.type === 'channel' ? <Hash className="h-5 w-5 text-muted-foreground"/> : <UserIcon className="h-5 w-5 text-muted-foreground"/>}
@@ -196,4 +196,3 @@ export default function ChatsPage() {
     </div>
   );
 }
-

@@ -31,8 +31,8 @@ const roles = [
 
 export default function PurchasePage() {
   return (
-    <div className="container mx-auto p-4">
-      <div className="mb-8 text-center">
+    <div className="flex flex-col gap-4">
+      <div className="mb-4 text-center">
         <h1 className="text-4xl font-bold font-headline tracking-tight">Choose Your Role</h1>
         <p className="text-muted-foreground mt-2 max-w-2xl mx-auto">
           Select the internship track that aligns with your career goals. Each role offers a unique, hands-on experience.

@@ -1,3 +1,4 @@
+
 "use client";
 
 import {
@@ -84,21 +85,21 @@ export default function AnalyticsPage() {
 
 
   return (
-    <div className="container mx-auto p-4">
-      <div className="flex justify-between items-center mb-8">
+    <div className="flex flex-col gap-4">
+      <div className="flex justify-between items-center mb-4">
         <h1 className="text-3xl font-bold font-headline tracking-tight">
           Analytics Dashboard
         </h1>
         <div className="flex gap-2 items-center">
-          <Button variant="outline">Last 30 days</Button>
-          <Button onClick={handleExport}>
+          <Button variant="outline" size="sm" className="hidden md:flex">Last 30 days</Button>
+          <Button onClick={handleExport} size="sm">
             <Download className="mr-2 h-4 w-4" />
             Export Report
           </Button>
         </div>
       </div>
 
-      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 mb-6">
+      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium">Active Users</CardTitle>
@@ -140,7 +141,7 @@ export default function AnalyticsPage() {
         </Card>
       </div>
 
-      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 mb-6">
+      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         <Card>
           <CardHeader>
             <CardTitle>Performance Metrics</CardTitle>

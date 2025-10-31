@@ -158,8 +158,8 @@ export default function MentorshipPage() {
   )
 
   return (
-    <div className="container mx-auto p-4">
-      <div className="flex justify-between items-center mb-8">
+    <div className="flex flex-col gap-4">
+      <div className="flex justify-between items-center mb-4">
         <h1 className="text-3xl font-bold font-headline tracking-tight">Mentorship Program</h1>
         <ScheduleSessionDialog trigger={
             <Button>
@@ -168,7 +168,7 @@ export default function MentorshipPage() {
             </Button>
         } />
       </div>
-      <div className="grid gap-6 lg:grid-cols-3 mb-6">
+      <div className="grid gap-6 lg:grid-cols-3">
         <Card className="lg:col-span-3">
           <CardContent className="p-6 flex flex-col md:flex-row items-center gap-6">
             <Avatar className="h-24 w-24">
@@ -199,7 +199,7 @@ export default function MentorshipPage() {
         </Card>
       </div>
 
-      <div className="grid gap-6 lg:grid-cols-3 mb-6">
+      <div className="grid gap-6 lg:grid-cols-3">
          <Card>
             <CardHeader>
                 <CardTitle>Upcoming Sessions</CardTitle>
@@ -299,5 +299,3 @@ export default function MentorshipPage() {
     </div>
   );
 }
-
-    

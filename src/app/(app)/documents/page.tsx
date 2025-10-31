@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState } from "react";
@@ -120,13 +121,13 @@ export default function DocumentsPage() {
     );
 
   return (
-    <div className="container mx-auto p-4">
-      <div className="flex justify-between items-center mb-8">
+    <div className="flex flex-col gap-4">
+      <div className="flex justify-between items-center mb-4">
         <h1 className="text-3xl font-bold font-headline tracking-tight">
           Documentation Center
         </h1>
         <div className="flex gap-2 items-center">
-            <div className="relative">
+            <div className="relative hidden md:block">
                 <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
                 <Input 
                     placeholder="Search documents..." 
@@ -137,7 +138,7 @@ export default function DocumentsPage() {
             </div>
             <Dialog open={isNewDocOpen} onOpenChange={setIsNewDocOpen}>
                 <DialogTrigger asChild>
-                  <Button>
+                  <Button size="sm">
                     <Plus className="mr-2 h-4 w-4" />
                     New Document
                   </Button>
@@ -172,7 +173,7 @@ export default function DocumentsPage() {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
         {filteredDocuments.map((doc) => (
           <Card key={doc.id}>
             <CardContent className="p-6">

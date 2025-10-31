@@ -49,13 +49,13 @@ export default function TicketsPage() {
 
 
   return (
-    <div className="container mx-auto p-4">
-      <div className="flex justify-between items-center mb-8">
+    <div className="flex flex-col gap-4">
+      <div className="flex justify-between items-center mb-4">
         <h1 className="text-3xl font-bold font-headline tracking-tight">
           Support Tickets
         </h1>
         <div className="flex gap-2 items-center">
-            <div className="relative">
+            <div className="relative hidden md:block">
                 <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
                 <Input 
                     placeholder="Search tickets..." 
@@ -64,14 +64,14 @@ export default function TicketsPage() {
                     onChange={(e) => setSearchQuery(e.target.value)}
                 />
             </div>
-          <Button>
+          <Button size="sm">
             <Plus className="mr-2 h-4 w-4" />
             Create Ticket
           </Button>
         </div>
       </div>
       
-      <div className="flex items-center gap-4 mb-6 p-4 bg-card rounded-lg border">
+      <div className="flex items-center gap-4 mb-2 p-4 bg-card rounded-lg border">
         <DropdownMenu>
             <DropdownMenuTrigger asChild>
                 <Button variant="outline">{statusFilter} Tickets <ChevronDown className="ml-2 h-4 w-4" /></Button>
